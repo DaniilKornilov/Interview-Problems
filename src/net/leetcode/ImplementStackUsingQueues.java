@@ -14,9 +14,6 @@ public class ImplementStackUsingQueues {
         queue2 = new LinkedList<>();
     }
 
-    /**
-     * Push element x onto stack.
-     */
     public void push(int x) {
         queue2.add(x);
         while (!queue1.isEmpty()) {
@@ -27,23 +24,14 @@ public class ImplementStackUsingQueues {
         queue2 = temp;
     }
 
-    /**
-     * Removes the element on top of the stack and returns that element.
-     */
     public int pop() {
         return queue1.remove();
     }
 
-    /**
-     * Get the top element.
-     */
     public int top() {
         return queue1.peek();
     }
 
-    /**
-     * Returns whether the stack is empty.
-     */
     public boolean empty() {
         return queue1.isEmpty();
     }
