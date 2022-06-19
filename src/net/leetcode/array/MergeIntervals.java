@@ -14,9 +14,12 @@ public class MergeIntervals {
         for (int i = 1; i < intervals.length; i++) {
             int start = intervals[i][0];
             int end = intervals[i][1];
-            int lastEnd = output.get(output.size() - 1)[1];
+
+            int lastIndex = output.size() - 1;
+            int lastEnd = output.get(lastIndex)[1];
+
             if (start <= lastEnd) {
-                output.get(output.size() - 1)[1] = Math.max(lastEnd, end);
+                output.get(lastIndex)[1] = Math.max(lastEnd, end);
             } else {
                 output.add(new int[]{start, end});
             }
