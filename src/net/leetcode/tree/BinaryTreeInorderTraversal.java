@@ -7,20 +7,16 @@ import java.util.Stack;
 //https://leetcode.com/problems/binary-tree-inorder-traversal/
 
 public class BinaryTreeInorderTraversal {
-    List<Integer> list = new LinkedList<>();
+
+    List<Integer> nodeValues = new LinkedList<>();
 
     public List<Integer> inorderTraversal(TreeNode root) {
-        dfs(root);
-        return list;
-    }
-
-    private void dfs(TreeNode root) {
-        if (root == null) {
-            return;
+        if (root != null) {
+            inorderTraversal(root.left);
+            nodeValues.add(root.val);
+            inorderTraversal(root.right);
         }
-        dfs(root.left);
-        list.add(root.val);
-        dfs(root.right);
+        return nodeValues;
     }
 
     public List<Integer> inorderTraversal1(TreeNode root) {

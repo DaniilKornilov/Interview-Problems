@@ -3,6 +3,7 @@ package net.leetcode.tree;
 //https://leetcode.com/problems/symmetric-tree/
 
 public class SymmetricTree {
+
     public static boolean isSymmetric(TreeNode root) {
         return isMirror(root, root);
     }
@@ -14,9 +15,11 @@ public class SymmetricTree {
         if (q == null || p == null) {
             return false;
         }
-        return (p.val == q.val)
-                && isMirror(p.left, q.right)
-                && isMirror(p.right, q.left);
+        if (p.val == q.val) {
+            return isMirror(p.left, q.right) &&
+                    isMirror(p.right, q.left);
+        }
+        return false;
     }
 
     public static void main(String[] args) {
